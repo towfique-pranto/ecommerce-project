@@ -1,3 +1,7 @@
+# React Course Project Repo - `In progress`
+
+This repository is part of the course: `https://github.com/towfique-pranto/react-course`
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
