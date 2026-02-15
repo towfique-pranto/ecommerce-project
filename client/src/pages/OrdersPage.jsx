@@ -2,12 +2,12 @@ import { Header } from "../components/Header";
 import buyAgainImg from "../assets/images/icons/buy-again.png";
 import "./OrdersPage.css";
 
-export function OrdersPage() {
+export function OrdersPage({ cart }) {
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/orders-favicon.png" />
       <title>Orders</title>
-      <Header />
+      <Header cart={cart} />
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
