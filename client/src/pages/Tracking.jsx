@@ -1,7 +1,30 @@
+import dayjs from "dayjs";
+import axios from "axios";
+import { useParams } from "react-router";
 import { Header } from "../components/Header";
 import { Link } from "react-router";
 import "./Tracking.css";
+import { useEffect, useState } from "react";
+
 export function Tracking({ cart }) {
+  //const params = useParams();
+  const { orderId, productId } = useParams();
+  const [order, setOrder] = useState(null);
+
+  useEffect(() => {
+    axios.get(`/api/orders/${orderId}?expand=products`).then((response) => {
+      setOrder(response.data);
+    });
+  }, [orderId]);
+
+  if (!order) {
+    return null;
+  }
+  const selectedOrder = order.products.find((product) => {
+    return product.productId === productId;
+  });
+  //console.log(selectedOrder);
+
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/tracking-favicon.png" />
@@ -13,18 +36,18 @@ export function Tracking({ cart }) {
             View all orders
           </Link>
 
-          <div className="delivery-date">Arriving on Monday, June 13</div>
-
-          <div className="product-info">
-            Black and Gray Athletic Cotton Socks - 6 Pairs
+          <div className="delivery-date">
+            Arriving on{" "}
+            {dayjs(selectedOrder.estimatedDeliveryTimeMs).format(
+              "dddd, MMMM D",
+            )}
           </div>
 
-          <div className="product-info">Quantity: 1</div>
+          <div className="product-info">{selectedOrder.product.name}</div>
 
-          <img
-            className="product-image"
-            src="images/products/athletic-cotton-socks-6-pairs.jpg"
-          />
+          <div className="product-info">Quantity: {selectedOrder.quantity}</div>
+
+          <img className="product-image" src={selectedOrder.product.image} />
 
           <div className="progress-labels-container">
             <div className="progress-label">Preparing</div>

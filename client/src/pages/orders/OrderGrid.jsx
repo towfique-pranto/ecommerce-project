@@ -29,6 +29,8 @@ export function OrderGrid({ orders }) {
 
             <div className="order-details-grid">
               {order.products.map((orderProduct) => {
+                const orderId = order.id;
+                const productId = orderProduct.product.id;
                 return (
                   <Fragment key={orderProduct.product.id}>
                     <div className="product-image-container">
@@ -55,7 +57,7 @@ export function OrderGrid({ orders }) {
                     </div>
 
                     <div className="product-actions">
-                      <a href="/tracking">
+                      <a href={`/tracking/${orderId}/${productId}`}>
                         <button className="track-package-button button-secondary">
                           Track package
                         </button>
