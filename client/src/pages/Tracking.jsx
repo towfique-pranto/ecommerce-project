@@ -23,7 +23,12 @@ export function Tracking({ cart }) {
     return product.productId === productId;
   });
   //console.log(selectedOrder);
-
+  const totaldeliveryTimeMs =
+    selectedOrder.estimatedDeliveryTimeMs - order.orderTimeMs;
+  const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
+  const progressTime = (timePassedMs / totaldeliveryTimeMs) * 100;
+  const deliveryPercent = Math.min(Math.max(progressTime, 0), 100);
+  //console.log(progressTime);
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/tracking-favicon.png" />
@@ -55,7 +60,10 @@ export function Tracking({ cart }) {
           </div>
 
           <div className="progress-bar-container">
-            <div className="progress-bar"></div>
+            <div
+              style={{ width: `${deliveryPercent}%` }}
+              className="progress-bar"
+            ></div>
           </div>
         </div>
       </div>
