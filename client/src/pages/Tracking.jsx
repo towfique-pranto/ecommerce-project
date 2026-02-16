@@ -7,7 +7,6 @@ import "./Tracking.css";
 import { useEffect, useState } from "react";
 
 export function Tracking({ cart }) {
-  //const params = useParams();
   const { orderId, productId } = useParams();
   const [order, setOrder] = useState(null);
 
