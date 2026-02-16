@@ -23,10 +23,10 @@ export function Tracking({ cart }) {
     return product.productId === productId;
   });
   //console.log(selectedOrder);
-  const totaldeliveryTimeMs =
+  const totalDeliveryTimeMs =
     selectedOrder.estimatedDeliveryTimeMs - order.orderTimeMs;
   const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
-  const progressTime = (timePassedMs / totaldeliveryTimeMs) * 100;
+  const progressTime = (timePassedMs / totalDeliveryTimeMs) * 100;
   const deliveryPercent = Math.min(Math.max(progressTime, 0), 100);
   //console.log(progressTime);
   return (
