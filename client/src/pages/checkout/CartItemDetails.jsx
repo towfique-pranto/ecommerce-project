@@ -31,7 +31,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
           <span
             className="update-quantity-link link-primary"
             onClick={() => {
-              setUpdateQuantity(updateQuantity ? false : true);
+              setUpdateQuantity((prev) => !prev);
             }}
           >
             Update
