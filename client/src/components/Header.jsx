@@ -35,7 +35,7 @@ export function Header({ cart, search }) {
           placeholder="Search"
           onKeyDown={(event) => {
             if (event.key === "Enter") {
-              navigate(`/?search=${searchBox}`);
+              navigate(`/?search=${encodeURIComponent(searchBox)}`);
             }
           }}
           onChange={(event) => {
@@ -47,7 +47,7 @@ export function Header({ cart, search }) {
           className="search-button"
           onClick={() => {
             //console.log(searchBox);
-            navigate(`/?search=${searchBox}`);
+            navigate(`/?search=${encodeURIComponent(searchBox)}`);
           }}
         >
           <img className="search-icon" src={searchIcon} />
