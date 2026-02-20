@@ -22,8 +22,12 @@ export function Header({ cart, search }) {
     <div className="header">
       <div className="left-section">
         <NavLink to="/" className="header-link">
-          <img className="logo" src={logoWhite} />
-          <img className="mobile-logo" src={mobileLogoWhite} />
+          <img className="logo" data-testid="header-logo" src={logoWhite} />
+          <img
+            className="mobile-logo"
+            data-testid="header-mobile-logo"
+            src={mobileLogoWhite}
+          />
         </NavLink>
       </div>
 
@@ -33,6 +37,7 @@ export function Header({ cart, search }) {
           className="search-bar"
           type="text"
           placeholder="Search"
+          data-testid="header-search-bar"
           onKeyDown={(event) => {
             if (event.key === "Enter") {
               navigate(`/?search=${encodeURIComponent(searchBox)}`);
@@ -45,8 +50,8 @@ export function Header({ cart, search }) {
 
         <button
           className="search-button"
+          data-testid="header-search-button"
           onClick={() => {
-            //console.log(searchBox);
             navigate(`/?search=${encodeURIComponent(searchBox)}`);
           }}
         >
@@ -55,11 +60,19 @@ export function Header({ cart, search }) {
       </div>
 
       <div className="right-section">
-        <NavLink className="orders-link header-link" to="/orders">
+        <NavLink
+          className="orders-link header-link"
+          to="/orders"
+          data-testid="header-orders-link"
+        >
           <span className="orders-text">Orders</span>
         </NavLink>
 
-        <NavLink className="cart-link header-link" to="/checkout">
+        <NavLink
+          className="cart-link header-link"
+          to="/checkout"
+          data-testid="header-cart-link"
+        >
           <img className="cart-icon" src={cartIcon} />
           <div className="cart-quantity">{totalQuantity}</div>
           <div className="cart-text">Cart</div>
