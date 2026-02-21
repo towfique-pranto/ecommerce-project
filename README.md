@@ -2,7 +2,7 @@
 
 ### [Live Demo](https://ecommerce-project-react-1qs0.onrender.com)
 
-This repository contains my personal implementation of the projects from the [React Course](https://github.com/towfique-pranto/react-course). It serves as a record of my learning journey and progress through the curriculum.
+This repository contains my personal implementation of the projects from the [React Course](https://github.com/towfique-pranto/react-course) by [SuperSimpleDev](https://github.com/SuperSimpleDev). It serves as a record of my learning journey and progress through the curriculum.
 
 A modern, responsive e-commerce application built with **React** and **Vite**. This project features a full shopping flow, from product browsing to order tracking.
 
