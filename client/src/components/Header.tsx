@@ -6,7 +6,12 @@ import searchIcon from "../assets/images/icons/search-icon.png";
 import cartIcon from "../assets/images/icons/cart-icon.png";
 import "./Header.css";
 
-export function Header({ cart, search }) {
+type HeaderProps = {
+  cart: { productId: string; quantity: number; deliveryOptionId: string }[];
+  search: string;
+};
+
+export function Header({ cart, search }: HeaderProps) {
   const [searchBox, setSearchBox] = useState(search || "");
   const navigate = useNavigate();
 
